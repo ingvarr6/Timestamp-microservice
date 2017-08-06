@@ -43,11 +43,14 @@ app.get('/:date', function(req, res){
   
   if (Number(date) === 'Nan'){
     var natural = new Date.parse(date)
-  } else if (Number(date) !== 'Nan')
+    var timestamp = new Date(Number(date));
+  } else if (Number(date) !== 'Nan'){
+    var timestamp = new Date(Number(date));
+  }
   
-  console.log(Math.floor( Date.parse('December 15, 2015')))
+  res.json({unix: timestamp, natural: natural})
   
-  res.send();
+  //res.send();
 })
 
 // // Respond not found to all the wrong routes
