@@ -44,14 +44,14 @@ app.get('/:date', function(req, res){
   
   var date = req.params.date;
   
-  var isTimestamp = Nubmer(date);
+
   
-  if (Number(date) === 'Nan'){
+  if (isNaN(Number(date))){
     var natural = new Date(date).toLocaleDateString('en-US', dataOptions);
-    var timestamp = new Date(Number(date));
+    var timestamp = Date.parse(natural);
   } 
   
-  console.log(natural)
+  console.log(timestamp)
   
   //res.json({unix: timestamp, natural: natural})
   
