@@ -41,6 +41,10 @@ app.route('/')
 app.get('/:date', function(req, res){
   var date = req.params.date;
   
+  if (Number(date) === 'Nan'){
+    var natural = new Date.parse(date)
+  } else if (Number(date) !== 'Nan')
+  
   console.log(Math.floor( Date.parse('December 15, 2015')))
   
   res.send();
