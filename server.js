@@ -39,18 +39,23 @@ app.route('/')
     })
 
 app.get('/:date', function(req, res){
+  
+  var dataOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  
   var date = req.params.date;
   
+  var isTimestamp = Nubmer(date);
+  
   if (Number(date) === 'Nan'){
-    var natural = new Date.parse(date)
+    var natural = new Date(date).toLocaleDateString('en-US', dataOptions);
     var timestamp = new Date(Number(date));
-  } else if (Number(date) !== 'Nan'){
-    var timestamp = new Date(Number(date));
-  }
+  } 
   
-  res.json({unix: timestamp, natural: natural})
+  console.log(natural)
   
-  //res.send();
+  //res.json({unix: timestamp, natural: natural})
+  
+  res.send();
 })
 
 // // Respond not found to all the wrong routes
