@@ -41,7 +41,7 @@ app.route('/')
 app.get('/:date', function(req, res){
   var date = req.params.date;
   
-  
+  console.log(Math.floor( Date.parse('December 15, 2015')))
   
   res.send();
 })
@@ -63,6 +63,6 @@ app.get('/:date', function(req, res){
 
 
 app.listen(process.env.PORT, function () {
-  console.log('Node.js listening ...');
+  //console.log('Node.js listening ...');
 });
 
